@@ -37,12 +37,15 @@ public class FilesController {
         uploadFile.transferTo(file_new);
 
 
+
+        //此处应有检查上传文件的后缀名.
+
         String fileNameStus = file_new.getAbsolutePath();
-        excelService.saveStudentsToSQL(excelService.getStudentsList(fileNameStus));
+        String result = excelService.saveStudentsToSQL(excelService.getStudentsList(fileNameStus));//保存至sql数据库
 
 
 
-        return "successfully upload!";
+        return result;
 
     }
 
