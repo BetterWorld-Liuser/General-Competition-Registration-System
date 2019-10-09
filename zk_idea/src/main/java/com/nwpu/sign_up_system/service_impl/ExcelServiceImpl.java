@@ -32,7 +32,6 @@ public class ExcelServiceImpl implements ExcelService {
 
         workBook = new XSSFWorkbook(is);
 
-        Students students=null;
         List<Students> studentsList = new ArrayList<Students>();
 
 
@@ -48,7 +47,7 @@ public class ExcelServiceImpl implements ExcelService {
                 if (row == null) {
                     continue;
                 }
-                students = new Students();
+                Students students = new Students();
                 //Cell
                 Cell stuName = row.getCell(0);
                 if(stuName==null){
