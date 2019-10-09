@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public interface StudentsMapper {
 
 
-    @Insert("insert into Students(name, id, teacher_name, is_pay_fee) " +
+    @Insert("insert into students(name, id, teacher_name, is_pay_fee) " +
             "values(#{name},#{id},#{teacher_name},#{is_pay_fee})")
     void addStudent(Students students)throws SQLException;
 
