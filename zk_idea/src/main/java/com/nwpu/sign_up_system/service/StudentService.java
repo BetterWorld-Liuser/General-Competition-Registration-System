@@ -1,6 +1,7 @@
 package com.nwpu.sign_up_system.service;
 
 
+import net.sf.json.JSONArray;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,10 +47,12 @@ public interface StudentService {
      * @param id
      * @return
      */
-    @Transactional
     int getScoreOfStudent(int id, String name);
 
 
-
-
+    /**
+     * 返回所有学生的报名信息。
+     * @return
+     */
+    JSONArray findAllStudents();
 }

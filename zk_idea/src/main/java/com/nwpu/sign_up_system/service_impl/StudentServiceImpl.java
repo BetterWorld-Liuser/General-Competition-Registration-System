@@ -1,7 +1,10 @@
 package com.nwpu.sign_up_system.service_impl;
 
 import com.nwpu.sign_up_system.mapper.StudentsMapper;
+import com.nwpu.sign_up_system.model.Students;
 import com.nwpu.sign_up_system.service.StudentService;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,18 +52,41 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public int getScoreOfStudent(int id, String name) {
-            int score;
+            int score = 0;
 
         // TODO: 2019-10-10 查询未找到应该返回特殊字段
 
-            try {
+        try {
             score =  studentsMapper.selectScoreOfStudent(id, name);
+
         } catch (SQLException e) {
             e.printStackTrace();
-
-            return -1;                      //-1代码代表查询失败
         }
 
         return score;
+    }
+
+
+    @Override
+    public JSONArray findAllStudents() {
+        JSONArray jsonArray = new JSONArray();
+        try {
+            for (Students students: studentsMapper.selectAllStudent()) {
+
+                JSONObject jsonObject = new  JSONObject();
+                jsonObject.put("id",students.getId());
+                jsonObject.put("name",students.getName());
+                jsonObject.put("score",students.getScore());
+                jsonObject.put("teacherName",students.getTeacher_name());
+
+                jsonArray.add(jsonObject);   //添加一个学生信息json object进入json array数组中
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return jsonArray;
+
     }
 }

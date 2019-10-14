@@ -6,10 +6,16 @@ import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 @Mapper
 @Repository
 public interface StudentsMapper {
+
+
+    @Select("select * from students ")
+    ArrayList<Students> selectAllStudent() throws SQLException;
+
 
 
     @Insert("insert into students(name, id, teacher_name, is_pay_fee) " +
@@ -25,8 +31,10 @@ public interface StudentsMapper {
     void updateScoreOfStudent(int id,int score)throws SQLException;
 
 
-    @Select("select score from students where id = #{id} and name = #{name}")
+    @Select("select IFNULL ((select IFNULL(score, -2) from students where id = #{id} and name = #{name}), -1)")
     int selectScoreOfStudent(int id, String name) throws SQLException;
+
+
 
 
 }
