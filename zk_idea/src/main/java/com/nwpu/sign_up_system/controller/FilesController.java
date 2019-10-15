@@ -2,13 +2,20 @@ package com.nwpu.sign_up_system.controller;
 
 
 import com.nwpu.sign_up_system.service.ExcelService;
+import com.nwpu.sign_up_system.utils.Download_file_util;
 import com.nwpu.sign_up_system.utils.Upload_file_util;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 
 @ResponseBody
 @Controller
@@ -37,4 +44,13 @@ public class FilesController {
     }
 
 
+    //文件下载相关代码
+    @RequestMapping("/downloadfile")
+    public String downloadFile(HttpServletRequest request, HttpServletResponse response, @RequestParam("fileName") String fileName) {
+
+        Download_file_util download_file_util = new Download_file_util();
+
+       return download_file_util.downloadFile(request, response, fileName);
+
+    }
 }
