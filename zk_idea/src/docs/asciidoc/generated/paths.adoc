@@ -1,0 +1,446 @@
+
+[[_paths]]
+== Paths
+
+[[_addscoretostudentusingpost]]
+=== addScoreToStudent
+....
+POST /addScoreToStudent
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**id** +
+__required__|id|integer(int32)
+|**Query**|**score** +
+__required__|score|integer(int32)
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**201**|Created|No Content
+|**400**|携带的id和score参数格式不正确|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|score过大，超出分数限制|No Content
+|**503**|数据库查无此人|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* 管理学生用户信息，执行相关操作的Controller
+
+
+[[_changescoretostudentusingpost]]
+=== changeScoreToStudent
+....
+POST /changeScoreToStudent
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**id** +
+__required__|id|integer(int32)
+|**Query**|**score** +
+__required__|score|integer(int32)
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**201**|Created|No Content
+|**400**|携带的id和score参数格式不正确|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|score过大或者为负，违背分数的范围限制|No Content
+|**503**|数据库查无此人|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* 管理学生用户信息，执行相关操作的Controller
+
+
+[[_findallnewsusingpost]]
+=== findAllNews
+....
+POST /deleteOneNew
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**id** +
+__required__|id|integer(int32)
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**201**|Created|No Content
+|**400**|请求删除的id参数没填|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|数据库中没有此对应此id的新闻|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* 网站发布热点新闻的Controller
+
+
+[[_deletestudentusingpost]]
+=== deleteStudent
+....
+POST /deleteStudent
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**id** +
+__required__|id|integer(int32)
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**201**|Created|No Content
+|**400**|学生id的参数格式不正确|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|数据库中不存在这个学生，查无此人|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* 管理学生用户信息，执行相关操作的Controller
+
+
+[[_downloadfileusingpost]]
+=== downloadFile
+....
+POST /downloadfile
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**fileName** +
+__required__|fileName|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**201**|Created|No Content
+|**400**|fileName参数格式不正确|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|下载过程出错|No Content
+|**503**|没有查找到这个文件的信息|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* 用户上传或者下载文件的Controller
+
+
+[[_findallnewsusingget]]
+=== findAllNews
+....
+GET /findAllNews
+....
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|< string, object > map
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* 网站发布热点新闻的Controller
+
+
+[[_findallnewsusingget_1]]
+=== findAllNews
+....
+GET /findAllStudents
+....
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|< object > array
+|**400**|学生信息数据库为空|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|**500**|服务器没有响应|No Content
+|===
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* 管理学生用户信息，执行相关操作的Controller
+
+
+[[_getscoreofstudentusingget]]
+=== getScoreOfStudent
+....
+GET /getScoreOfStudent
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**id** +
+__required__|id|integer(int32)
+|**Query**|**name** +
+__required__|name|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**400**|携带的id和name参数格式不正确|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|对应Id和name不匹配|No Content
+|**503**|数据库查无匹配的结果|No Content
+|===
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* 管理学生用户信息，执行相关操作的Controller
+
+
+[[_publishnewsusingpost]]
+=== publishNews
+....
+POST /publishNews
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**content** +
+__required__|content|string
+|**Query**|**date** +
+__required__|date|string
+|**Query**|**sender** +
+__required__|sender|string
+|**Query**|**tag** +
+__required__|tag|string
+|**Query**|**title** +
+__required__|title|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**201**|Created|No Content
+|**400**|发布新闻的参数格式不正确|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|新闻字符串参数过长，超出限制|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* 网站发布热点新闻的Controller
+
+
+[[_uploadusingpost]]
+=== upload
+....
+POST /uploadfile
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**FormData**|**uploadFile** +
+__required__|uploadFile|file
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**201**|Created|No Content
+|**400**|fileName参数格式不正确|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|上传过程出错|No Content
+|**503**|本地没有查找到这个文件的信息|No Content
+|===
+
+
+==== Consumes
+
+* `multipart/form-data`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* 用户上传或者下载文件的Controller
+
+
+

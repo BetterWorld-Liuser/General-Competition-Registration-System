@@ -1,5 +1,6 @@
-package com.nwpu.sign_up_system.utils;//package com.example.websocketdemo.utils;
+//package com.nwpu.sign_up_system.utils;
 //
+//import ch.qos.logback.core.util.FileUtil;
 //import com.aliyun.oss.OSSClient;
 //import com.aliyun.oss.model.Bucket;
 //import com.aliyun.oss.model.OSSObject;
@@ -22,21 +23,15 @@ package com.nwpu.sign_up_system.utils;//package com.example.websocketdemo.utils;
 // * Describe: 阿里云OSS连接
 // */
 //public class AliYunOSSClientUtil {
-//
 //    private static Logger logger = LoggerFactory.getLogger(FileUtil.class);
-//
 //    private static String ENDPOINT;
-//
 //    private static String ACCESS_KEY_ID;
-//
 //    private static String ACCESS_KEY_SECRET;
-//
 //    private static String BACKET_NAME;
-//
 //    private static String FOLDER;
 //
 //    //初始化属性
-//    static{
+//    static {
 //        ENDPOINT = OSSClientConstants.ENDPOINT;
 //        ACCESS_KEY_ID = OSSClientConstants.ACCESS_KEY_ID;
 //        ACCESS_KEY_SECRET = OSSClientConstants.ACCESS_KEY_SECRET;
@@ -46,24 +41,26 @@ package com.nwpu.sign_up_system.utils;//package com.example.websocketdemo.utils;
 //
 //    /**
 //     * 获得阿里云OSS客户端对象
+//     *
 //     * @return ossClient
 //     */
-//    public static OSSClient getOSSClient(){
-//        return new OSSClient(ENDPOINT,ACCESS_KEY_ID, ACCESS_KEY_SECRET);
+//    public static OSSClient getOSSClient() {
+//        return new OSSClient(ENDPOINT, ACCESS_KEY_ID, ACCESS_KEY_SECRET);
 //    }
 //
 //    /**
 //     * 创建存储空间
-//     * @param ossClient OSS连接
+//     *
+//     * @param ossClient  OSS连接
 //     * @param bucketName 存储空间
 //     * @return
 //     */
-//    public static String createBucketName(OSSClient ossClient,String bucketName){
+//    public static String createBucketName(OSSClient ossClient, String bucketName) {
 //        //存储空间
-//        final String bucketNames=bucketName;
-//        if(!ossClient.doesBucketExist(bucketName)){
+//        final String bucketNames = bucketName;
+//        if (!ossClient.doesBucketExist(bucketName)) {
 //            //创建存储空间
-//            Bucket bucket=ossClient.createBucket(bucketName);
+//            Bucket bucket = ossClient.createBucket(bucketName);
 //            logger.info("创建存储空间成功");
 //            return bucket.getName();
 //        }
@@ -72,33 +69,34 @@ package com.nwpu.sign_up_system.utils;//package com.example.websocketdemo.utils;
 //
 //    /**
 //     * 删除存储空间buckName
+//     *
 //     * @param ossClient  oss对象
-//     * @param bucketName  存储空间
+//     * @param bucketName 存储空间
 //     */
-//    public static  void deleteBucket(OSSClient ossClient, String bucketName){
+//    public static void deleteBucket(OSSClient ossClient, String bucketName) {
 //        ossClient.deleteBucket(bucketName);
 //        logger.info("删除" + bucketName + "Bucket成功");
 //    }
 //
-//
 //    /**
 //     * 创建模拟文件夹
-//     * @param ossClient oss连接
+//     *
+//     * @param ossClient  oss连接
 //     * @param bucketName 存储空间
-//     * @param folder   模拟文件夹名如"qj_nanjing/"
-//     * @return  文件夹名
+//     * @param folder     模拟文件夹名如"qj_nanjing/"
+//     * @return 文件夹名
 //     */
-//    public  static String createFolder(OSSClient ossClient,String bucketName,String folder){
+//    public static String createFolder(OSSClient ossClient, String bucketName, String folder) {
 //        //文件夹名
-//        final String keySuffixWithSlash =folder;
+//        final String keySuffixWithSlash = folder;
 //        //判断文件夹是否存在，不存在则创建
-//        if(!ossClient.doesObjectExist(bucketName, keySuffixWithSlash)){
+//        if (!ossClient.doesObjectExist(bucketName, keySuffixWithSlash)) {
 //            //创建文件夹
 //            ossClient.putObject(bucketName, keySuffixWithSlash, new ByteArrayInputStream(new byte[0]));
 //            logger.info("创建文件夹成功");
 //            //得到文件夹名
 //            OSSObject object = ossClient.getObject(bucketName, keySuffixWithSlash);
-//            String fileDir=object.getKey();
+//            String fileDir = object.getKey();
 //            return fileDir;
 //        }
 //        return keySuffixWithSlash;
@@ -106,25 +104,27 @@ package com.nwpu.sign_up_system.utils;//package com.example.websocketdemo.utils;
 //
 //    /**
 //     * 根据key删除OSS服务器上的文件
+//     *
 //     * @param ossClient  oss连接
-//     * @param bucketName  存储空间
-//     * @param folder  模拟文件夹名 如"qj_nanjing/"
-//     * @param key Bucket下的文件的路径名+文件名 如："upload/cake.jpg"
+//     * @param bucketName 存储空间
+//     * @param folder     模拟文件夹名 如"qj_nanjing/"
+//     * @param key        Bucket下的文件的路径名+文件名 如："upload/cake.jpg"
 //     */
-//    public static void deleteFile(OSSClient ossClient, String bucketName, String folder, String key){
+//    public static void deleteFile(OSSClient ossClient, String bucketName, String folder, String key) {
 //        ossClient.deleteObject(bucketName, folder + key);
 //        logger.info("删除" + bucketName + "下的文件" + folder + key + "成功");
 //    }
 //
 //    /**
 //     * 上传图片至OSS
+//     *
 //     * @param ossClient  oss连接
-//     * @param file 上传文件（文件全路径如：D:\\image\\cake.jpg）
-//     * @param bucketName  存储空间
-//     * @param folder 模拟文件夹名 如"qj_nanjing/"
+//     * @param file       上传文件（文件全路径如：D:\\image\\cake.jpg）
+//     * @param bucketName 存储空间
+//     * @param folder     模拟文件夹名 如"qj_nanjing/"
 //     * @return String 返回的唯一MD5数字签名
-//     * */
-//    public static  String uploadObject2OSS(OSSClient ossClient, File file, String bucketName, String folder) {
+//     */
+//    public static String uploadObject2OSS(OSSClient ossClient, File file, String bucketName, String folder) {
 //        String resultStr = null;
 //        try {
 //            //以输入流的形式上传文件
@@ -161,37 +161,38 @@ package com.nwpu.sign_up_system.utils;//package com.example.websocketdemo.utils;
 //
 //    /**
 //     * 通过文件名判断并获取OSS服务文件上传时文件的contentType
+//     *
 //     * @param fileName 文件名
 //     * @return 文件的contentType
 //     */
-//    public static  String getContentType(String fileName){
+//    public static String getContentType(String fileName) {
 //        //文件的后缀名
 //        String fileExtension = fileName.substring(fileName.lastIndexOf("."));
-//        if(".bmp".equalsIgnoreCase(fileExtension)) {
+//        if (".bmp".equalsIgnoreCase(fileExtension)) {
 //            return "image/bmp";
 //        }
-//        if(".gif".equalsIgnoreCase(fileExtension)) {
+//        if (".gif".equalsIgnoreCase(fileExtension)) {
 //            return "image/gif";
 //        }
-//        if(".jpeg".equalsIgnoreCase(fileExtension) || ".jpg".equalsIgnoreCase(fileExtension)  || ".png".equalsIgnoreCase(fileExtension) ) {
+//        if (".jpeg".equalsIgnoreCase(fileExtension) || ".jpg".equalsIgnoreCase(fileExtension) || ".png".equalsIgnoreCase(fileExtension)) {
 //            return "image/jpeg";
 //        }
-//        if(".html".equalsIgnoreCase(fileExtension)) {
+//        if (".html".equalsIgnoreCase(fileExtension)) {
 //            return "text/html";
 //        }
-//        if(".txt".equalsIgnoreCase(fileExtension)) {
+//        if (".txt".equalsIgnoreCase(fileExtension)) {
 //            return "text/plain";
 //        }
-//        if(".vsd".equalsIgnoreCase(fileExtension)) {
+//        if (".vsd".equalsIgnoreCase(fileExtension)) {
 //            return "application/vnd.visio";
 //        }
-//        if(".ppt".equalsIgnoreCase(fileExtension) || "pptx".equalsIgnoreCase(fileExtension)) {
+//        if (".ppt".equalsIgnoreCase(fileExtension) || "pptx".equalsIgnoreCase(fileExtension)) {
 //            return "application/vnd.ms-powerpoint";
 //        }
-//        if(".doc".equalsIgnoreCase(fileExtension) || "docx".equalsIgnoreCase(fileExtension)) {
+//        if (".doc".equalsIgnoreCase(fileExtension) || "docx".equalsIgnoreCase(fileExtension)) {
 //            return "application/msword";
 //        }
-//        if(".xml".equalsIgnoreCase(fileExtension)) {
+//        if (".xml".equalsIgnoreCase(fileExtension)) {
 //            return "text/xml";
 //        }
 //        //默认返回类型
@@ -214,5 +215,4 @@ package com.nwpu.sign_up_system.utils;//package com.example.websocketdemo.utils;
 //        }
 //        return null;
 //    }
-//
 //}
