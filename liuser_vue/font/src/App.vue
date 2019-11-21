@@ -1,23 +1,27 @@
 <template>
-  <div id="app">
+  <div id="AppMain">
     
     <!--
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Register></Register>
     -->
-    <HomePage></HomePage>
+    <GetScore></GetScore>
   </div>
 </template>
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
-import HomePage from './components/HomePage.vue'
-
+//import HomePage from './components/HomePage.vue'
+//import Register from './components/Register.vue'
+import GetScore from './components/GetScore.vue'
 
 export default {
   name: 'app',
   components: {
-    HomePage
+//    HomePage,
+//    Register,
+      GetScore
   }
 }
 </script>
