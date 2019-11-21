@@ -6,3 +6,29 @@
     margin: 0;
     padding: 0;
 }
+body{
+    font-size:62.5%;
+}
+
+
+
+
+
+@media only screen and (max-width: 1440px) { 
+    .el-main{
+        width: 1440px;
+        height: 1024px;
+    }
+ }
+
+ @media only screen and (min-width: 1440px) { 
+    .el-main{
+        width: 1440px;
+        height: 1024px;
+        
+    }
+    .el-container{
+        display: flex;
+        justify-content: center;
+    }
+ }
