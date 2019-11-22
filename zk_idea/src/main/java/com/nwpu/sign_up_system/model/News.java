@@ -1,10 +1,11 @@
 package com.nwpu.sign_up_system.model;
 
+import io.swagger.annotations.Api;
 import lombok.Data;
+@Api(tags="管理新闻的实体类")
 
 @Data
 public class News {
-
     private String title; //标题
     private int id;   //主键
     private String date; //time
@@ -12,7 +13,7 @@ public class News {
     private String sender;  //发布单位
     private String tag;   //标签
 
-    public News(String title,  String date, String content, String sender, String tag) {
+    public News(String title, String date, String content, String sender, String tag) {
         this.title = title;
         this.date = date;
         this.content = content;

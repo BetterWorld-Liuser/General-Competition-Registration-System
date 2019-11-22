@@ -1,16 +1,16 @@
 package com.nwpu.sign_up_system.model;
 
-
+import io.swagger.annotations.Api;
 import lombok.Data;
+@Api(tags="学生的实体类")
 
 @Data
 public class Students {
-
-      private   int id;
-      private String name;
-      private   int  score;
-      private String teacher_name;
-      private boolean is_pay_fee;
+    private int id;
+    private String name;
+    private int score;
+    private String teacher_name;
+    private boolean is_pay_fee;
 
     public Students() {
     }

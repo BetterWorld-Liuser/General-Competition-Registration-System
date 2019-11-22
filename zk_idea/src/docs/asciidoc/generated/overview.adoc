@@ -1,0 +1,32 @@
+= 省赛报名系统后端接口文档（部分）
+
+
+[[_overview]]
+== Overview
+后端使用springboot开发，接口文档使用Swagger2生成
+
+
+=== Version information
+[%hardbreaks]
+__Version__ : 1.5
+
+
+=== License information
+[%hardbreaks]
+__Terms of service__ : https://github.com/thegreatke
+
+
+=== URI scheme
+[%hardbreaks]
+__Host__ : localhost
+__BasePath__ : /
+
+
+=== Tags
+
+* 用户上传或者下载文件的Controller : Files Controller
+* 管理学生用户信息，执行相关操作的Controller : Student Controller
+* 网站发布热点新闻的Controller : News Controller
+
+
+

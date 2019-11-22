@@ -6,7 +6,5 @@ package com.nwpu.sign_up_system.utils;
  * Describe: 文章信息
  */
 public interface SiteOwner {
-
-    String SITE_OWNER = "西工大匿名水贴区版主——轲爷";
-
+    String SITE_OWNER = "西工大——周轲";
 }
