@@ -55,12 +55,12 @@ public class ExcelServiceImpl implements ExcelService {
                 if (teacher == null) {
                     continue;
                 }
-                students.setTeacher_name(teacher.getStringCellValue());//teacher_name
+                students.setTeacherName(teacher.getStringCellValue());//teacher_name
                 Cell pay = row.getCell(3);
                 if (pay == null) {
                     continue;
                 }
-                students.set_pay_fee(pay.getBooleanCellValue());//bool
+                students.setPayFee(pay.getBooleanCellValue());//bool
                 studentsList.add(students);
             }
         }

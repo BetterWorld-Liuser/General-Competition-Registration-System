@@ -66,8 +66,10 @@ public class StudentServiceImpl implements StudentService {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("id", students.getId());
                 jsonObject.put("name", students.getName());
+                jsonObject.put("school", students.getSchoolName());
                 jsonObject.put("score", students.getScore());
-                jsonObject.put("teacherName", students.getTeacher_name());
+                jsonObject.put("teacherName", students.getTeacherName());
+                jsonObject.put("examType", students.getExamType());
                 jsonArray.add(jsonObject);   //添加一个学生信息json object进入json array数组中
             }
         } catch (SQLException e) {
