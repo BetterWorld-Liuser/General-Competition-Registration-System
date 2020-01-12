@@ -5,6 +5,8 @@ import net.sf.json.JSONObject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
+
 @Service
 @Api(tags="实现News相关操作的Service组件")
 public interface NewsService {
@@ -18,7 +20,7 @@ public interface NewsService {
      * @param tag
      */
     @Transactional
-    String publishNews(String title, String date, String content, String sender, String tag);
+    String publishNews(String title, Date date, String content, String sender, String tag);
 
     /**
      * 指定删除某一条新闻动态

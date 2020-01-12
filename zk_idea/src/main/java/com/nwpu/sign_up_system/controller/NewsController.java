@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Date;
+
 @Api(tags="网站发布热点新闻的Controller")
 @Controller
 @ResponseBody
@@ -30,13 +33,16 @@ public class NewsController {
     })
     public String publishNews(@RequestParam("title") String title,
 //                            @RequestParam("id") int id,
-                              @RequestParam("date") String date,
+                              @RequestParam("date") Date date,
                               @RequestParam("content") String content,
                               @RequestParam("sender") String sender,
                               @RequestParam("tag") String tag
     ) {
         return newsService.publishNews(title, date, content, sender, tag);
     }
+
+
+
     @ApiModelProperty(value = "返回所有的新闻")
     @RequestMapping(value = "/findAllNews", method = RequestMethod.GET)
     public JSONObject findAllNews() {
@@ -55,4 +61,6 @@ public class NewsController {
         if (title == null) return "id is not exist, failed!";
         else return newsService.deleteNews(id);
     }
+
+
 }

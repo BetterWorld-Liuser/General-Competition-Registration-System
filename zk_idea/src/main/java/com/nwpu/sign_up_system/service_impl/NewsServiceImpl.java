@@ -9,6 +9,9 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 @Api(tags="实现News相关操作的Service组件的实现")
 @Service
@@ -16,10 +19,17 @@ public class NewsServiceImpl implements NewsService {
     @Autowired
     NewsMapper newsMapper;
 
+    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+
+
     @Override
-    public String publishNews(String title, String date, String content, String sender, String tag) {
-        News news = new News(title, date, content, sender, tag);
+    public String publishNews(String title, Date date, String content, String sender, String tag) {
+
         try {
+
+            String strName = dateFormat.format(date);
+            Date newDate = dateFormat.parse(strName);
+            News news = new News(title, newDate, content, sender, tag);
             newsMapper.pulishNews(news);
         } catch (Exception e) {
             return "publish failed!";
@@ -27,7 +37,7 @@ public class NewsServiceImpl implements NewsService {
         return "publish successfully!";
     }
 
-    ;
+
 
     @Override
     public String deleteNews(int id) {
@@ -53,7 +63,7 @@ public class NewsServiceImpl implements NewsService {
             jsonObject = new JSONObject();
             jsonObject.put("title", news.getTitle());
             jsonObject.put("id", news.getId());
-            jsonObject.put("date", news.getDate());
+            jsonObject.put("date", dateFormat.format(news.getDate()));  //格式化util.date -> str
             jsonObject.put("content", news.getContent());
             jsonObject.put("sender", news.getSender());
             jsonObject.put("tag", news.getTag());
