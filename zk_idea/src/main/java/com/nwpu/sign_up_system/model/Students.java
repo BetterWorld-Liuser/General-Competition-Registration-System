@@ -8,17 +8,19 @@ import lombok.Data;
 public class Students {
     private int id;
     private String name;
+    private String schoolName;
     private int score;
-    private String teacher_name;
-    private boolean is_pay_fee;
+    private String teacherName;
+    private boolean isPayFee;
+    private String examType;
 
     public Students() {
     }
 
-    public Students(int id, String name, String teacher_name, boolean is_pay_fee) {
+    public Students(int id, String name, String teacherName, boolean isPayFee) {
         this.id = id;
         this.name = name;
-        this.teacher_name = teacher_name;
-        this.is_pay_fee = is_pay_fee;
+        this.teacherName = teacherName;
+        this.isPayFee = isPayFee;
     }
 }
