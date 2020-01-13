@@ -39,7 +39,7 @@ public class Swagger2Config extends WebMvcConfigurationSupport {
      */
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("swagger-ui.html")
+        registry.addResourceHandler("swagger")
                 .addResourceLocations("classpath:/META-INF/resources/");
 
         registry.addResourceHandler("/webjars/**")
@@ -65,7 +65,7 @@ public class Swagger2Config extends WebMvcConfigurationSupport {
                 .description("后端使用springboot开发，接口文档使用Swagger2生成")
                 //服务条款网址
                 .termsOfServiceUrl("https://github.com/thegreatke")
-                .version("1.5")
+                .version("1.7")
                 .build();
     }
 

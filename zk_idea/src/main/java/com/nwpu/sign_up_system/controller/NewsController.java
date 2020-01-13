@@ -2,7 +2,7 @@ package com.nwpu.sign_up_system.controller;
 
 import com.nwpu.sign_up_system.service.NewsService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import net.sf.json.JSONObject;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
 
-@Api(tags="网站发布热点新闻的Controller")
+@Api(tags="发布热点新闻的接口")
 @Controller
 @ResponseBody
 public class NewsController {
@@ -25,7 +25,7 @@ public class NewsController {
 
     @Autowired
     NewsService newsService;
-    @ApiModelProperty(value = "发布新闻")
+    @ApiOperation(value = "发布新闻， 返回一个string的处理结果的文字描述")
     @RequestMapping(value = "/publishNews", method = RequestMethod.POST)
     @ApiResponses({
             @ApiResponse(code=400,message="发布新闻的参数格式不正确"),
@@ -43,7 +43,7 @@ public class NewsController {
 
 
 
-    @ApiModelProperty(value = "返回所有的新闻")
+    @ApiOperation(value = "返回所有的新闻")
     @RequestMapping(value = "/findAllNews", method = RequestMethod.GET)
     public JSONObject findAllNews() {
         return newsService.findAllNews();
@@ -51,10 +51,10 @@ public class NewsController {
 
 
     @ApiResponses({
-            @ApiResponse(code=400,message="请求删除的id参数没填"),
-            @ApiResponse(code=404,message="数据库中没有此对应此id的新闻")
+            @ApiResponse(code=200,message="id is not exist, failed!"),
+            @ApiResponse(code=200,message="delete successfully!")
     })
-    @ApiModelProperty(value = "删除某一条新闻")
+    @ApiOperation(value = "删除某一条新闻， 返回一个string的处理结果的文字描述")
     @RequestMapping(value = "/deleteOneNew", method = RequestMethod.POST)
     public String findAllNews(@RequestParam("id") int id) {
         String title = newsService.findTitleById(id);
