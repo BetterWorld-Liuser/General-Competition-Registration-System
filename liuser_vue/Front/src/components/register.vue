@@ -1,14 +1,20 @@
 <template>
   <div id="outerLayer" style="width:1440px;height:1080px">
-    <div style="width:1440px;height:350px;overflow:hidden;position:relative">
-      <img src="../assets/background4.jpg" alt />
-      <h2 style="position:absolute;left:1044px;top:215px;color:#fff;font-size:30px">报名工具</h2>
+    <div style="width:1440px;height:250px;overflow:hidden;position:relative">
+      <h2
+        style="position:absolute;left:200px;top:100px;color:#fff;font-size:30px"
+      >
+        报名工具
+      </h2>
+      <img src="../assets/background4.jpg" style="width:100%;" />
     </div>
-    <div style="width:1440px;height:600px;display:flex;justify-content:center;align-items:center">
+    <div
+      style="width:1440px;height:400px;display:flex;justify-content:center;align-items:center"
+    >
       <div style="width:320px;height:180px;text-align:left">
         <p style="text-align:left;font-size:24px">学校：</p>
         <el-autocomplete
-        style="width:360px"
+          style="width:360px"
           v-model="state"
           :fetch-suggestions="querySearchAsync"
           placeholder="请输入内容"
@@ -26,13 +32,14 @@
             将文件拖到此处，或
             <em>点击上传</em>
           </div>
-          <div class="el-upload__tip" slot="tip">只能上传xlsx文件，且不超过10MB</div>
+          <div class="el-upload__tip" slot="tip">
+            只能上传xlsx文件，且不超过10MB
+          </div>
         </el-upload>
       </div>
     </div>
   </div>
 </template>
-
 
 <style>
 #outerLater::-webkit-scrollbar {

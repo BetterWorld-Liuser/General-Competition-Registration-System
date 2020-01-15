@@ -1,0 +1,1431 @@
+module.exports = {
+  presets: [
+    '@vue/cli-plugin-babel/preset'
+  ]
+}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>gear.png" />
+    <title>大学生先进成图技术和产品信息建模创新大赛</title>
+  </head>
+  <body>
+    <noscript>
+      <strong
+        >We're sorry but font doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong
+      >
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
+<style>
+  html,
+  body {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    line-height: 30px;
+    text-align: center;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+import Vue from "vue";
+import App from "./App.vue";
+import Element from "element-ui";
+import "element-ui/lib/theme-chalk/index.css";
+import "./custom.css";
+import axios from "axios";
+import qs from "qs.js";
+Vue.config.productionTip = false;
+Vue.prototype.$axios = axios;
+Vue.prototype.$qs = qs;
+Vue.use(Element);
+new Vue({
+  render: h => h(App)
+}).$mount("#app");
+.button-first{
+    margin-left: 10px;
+    }
+.el-main{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size:62.5%;
+}
+@media only screen and (max-width: 1440px) { 
+    .el-main{
+        width: 1440px;
+        height: 1024px;
+    }
+ }
+ @media only screen and (min-width: 1440px) { 
+    .el-main{
+        width: 1440px;
+        height: 1024px;
+    }
+    .el-container{
+        display: flex;
+        justify-content: center;
+    }
+ }<template>
+  <div id="AppMain">
+    <!--
+    <img alt="Vue logo" src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Register></Register>
+    -->
+    <HomePage></HomePage>
+  </div>
+</template>
+<script>
+//import HelloWorld from "./components/HelloWorld.vue";
+import HomePage from "./components/HomePage.vue";
+//import Register from "./components/Register.vue";
+//import GetScore from "./components/GetScore.vue";
+export default {
+  name: "app",
+  components: {
+    //    HomePage,
+    //    Register,
+    HomePage
+  }
+};
+</script>
+<style>
+#app {
+  height: 100%;
+  width: 100%;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 0px;
+}
+</style>
+<template>
+  <div
+    class="file-dowload-title"
+    style="position:relative; height:200px; overflow:hidden"
+  >
+    <img src="../assets/2.jpg" alt="" style="width:100%" />
+    <p
+      style="position:absolute;bottom:20px;left:12px;color:white;font-size:40px"
+    >
+      资料下载
+    </p>
+  </div></template
+>
+<script>
+export default {};
+</script>
+<style></style>
+<template>
+  <div class="img-main-div">
+    <img class="img-main" src="../assets/1.jpg" />
+    <div class="title-name">
+      <p>
+        <font style="font-size:30px"
+          >大学生先进成图技术和产品信息建模创新大赛</font
+        >
+      </p>
+      <div style="margin-top:70px">
+        <el-button
+          class="button-first"
+          style="height:50px;width:160px;font-size:17px;background-color:#fff"
+          >报名</el-button
+        >
+        <el-button
+          type="danger"
+          style="height:50px;width:160px;background-color:#FF7043;font-size:17px"
+          >了解更多</el-button
+        >
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {};
+</script>
+<style></style>
+<template>
+    <div id="GetScore" style="width:1440px;height:920px;display:flex;flex-direction:column;justify-content:center;align-items:center">
+        <div style="overflow:hidden;width:1440px;height:1000px;position:relative">
+            <img src="../assets/1.jpg" alt="" style="width:1440px;position:absolute;top:0;left:0">
+            <div style="width:980px;height:400px;position:absolute;background-color:#fff;top:100px;left:150px;border-radius:10px">
+            <div style="background-color:#FF7043;width:auto;height:100px;margin-top:0;padding-top:10px">
+                <h2 style="color:#fff;font-size:36px;margin-top:5px">查询系统</h2>
+            </div>
+            <div>
+                <p style="font-size:20px">请输入比赛编号/身份证号：</p>
+                <el-input v-model="input" placeholder="请输入内容" style="width:600px"></el-input>
+                <el-button type="success" plain style="display:none">成功按钮</el-button>
+            </div>
+        </div>
+            </div>
+    </div>
+</template>
+<style lang="stylus">
+</style>
+<script>
+export default {
+    name:"GetScore",
+}
+</script><template>
+  <div class="hello">
+    <h1>{{ msg }}</h1>
+    <p>
+      For a guide and recipes on how to configure / customize this project,<br>
+      check out the
+      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
+    </p>
+    <h3>Installed CLI Plugins</h3>
+    <ul>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
+    </ul>
+    <h3>Essential Links</h3>
+    <ul>
+      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
+      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
+      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
+      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
+    </ul>
+    <h3>Ecosystem</h3>
+    <ul>
+      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
+      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
+      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
+      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
+    </ul>
+  </div>
+</template>
+<script>
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  }
+}
+</script>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+</style>
+<template>
+  <div class="app-homepage">
+    <el-container style="display:flex">
+      <el-header style="width:100%;overflow:hidden;height:80px">
+        <el-menu
+          :default-active="activeIndex"
+          class="el-menu-demo"
+          mode="horizontal"
+          @select="handleSelect"
+          style="font-size:10vh;width:100%"
+        >
+          <el-menu-item index="1" class="mechanic-logo">
+            <a id="logo" href="/">
+              <img
+                class="img-logo"
+                src="../assets/gear.png"
+                alt="mechanic logo"
+              />
+            </a>
+          </el-menu-item>
+          <el-menu-item index="2" class="load">首页</el-menu-item>
+          <el-menu-item index="3" class="FirstPage">资料下载</el-menu-item>
+          <el-menu-item index="4">大赛介绍</el-menu-item>
+          <el-menu-item index="5">报名</el-menu-item>
+          <el-menu-item index="6">联系我们</el-menu-item>
+          <el-menu-item index="7">获奖查询</el-menu-item>
+          <el-menu-item index="8">登录</el-menu-item>
+        </el-menu>
+        <div class="line"></div>
+      </el-header>
+      <el-main style="margin: 0 auto;">
+        <div class="el-main-div">
+          <FirstHead></FirstHead>
+          <ThreeButton></ThreeButton>
+          <Indroduce></Indroduce>
+          <Insititution></Insititution>
+          <News></News>
+          <Sigin></Sigin>
+          <FileDownload></FileDownload>
+          <div
+      class="file-dowload"
+      style="position:relative; height:70%; overflow:hidden"
+    >
+      <el-row style="height:100%;text-align:left">
+        <el-col style="height:100%" :span="12" v-for="k in 2" :key="k">
+          <div v-for="o in 3" :key="o" style="margin-left:10%;height:33%">
+            <h2>标题</h2>
+            <p>内容</p>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+        </div>
+      </el-main>
+      <el-footer style="background-color:#FF7043;height:3%">
+        <el-row style="height:100%;text-align:left">
+          <el-col style="height:100%" :span="12">
+            <p style="color:white;margin:0 0 0 0;">
+              Copyright 2019.All rights reserved.
+            </p>
+          </el-col>
+          <el-col style="height:100%;text-align:right;" :span="12">
+            <p style="color:white; margin:0 0 0 0;">
+              China: +86 13772032723 US: +11 222 333 444 support@shark.com
+            </p>
+          </el-col>
+        </el-row>
+      </el-footer>
+    </el-container>
+  </div>
+</template>
+<script>
+import FirstHead from "./FirstHead";
+import ThreeButton from "./ThreeButton";
+import Indroduce from "./Indroduce";
+import Insititution from "./Institution";
+import News from "./News";
+import Sigin from "./Sigin";
+import FileDownload from "./FileDownload";
+export default {
+  name: "HomePage",
+  components: {
+    FirstHead,
+    ThreeButton,
+    Indroduce,
+    Insititution,
+    News,
+    Sigin,
+    FileDownload
+  }
+};
+</script>
+<style>
+.three-button {
+  width: auto;
+  background-color: #ff7043;
+  height: 150px;
+}
+.title-name {
+  z-index: 2;
+  position: absolute;
+  text-align: start;
+  top: 225px;
+  left: 92px;
+  color: white;
+}
+.el-main-div {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.el-main-div::-webkit-scrollbar {
+  display: none;
+}
+.img-main-div {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+.app-homepage {
+  width: 100%;
+  height: 100%;
+}
+.el-container {
+  width: 100%;
+  height: 100%;
+}
+el-main {
+  padding: 0px;
+}
+.img-main {
+  width: 100%;
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.load {
+  width: 100px;
+}
+.img-logo {
+  vertical-align: middle;
+  margin-right: 6px;
+  width: 40px;
+  height: 40px;
+}
+.FirstPage {
+  float: right;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+.mechanic-logo {
+  float: none;
+}
+</style>
+<template>
+  <div
+    class="introduce"
+    style="height:400px;display:flex;justify-content:center;align-items:center"
+  >
+    <div>
+      <div style="width:600px">
+        <h2 style="font-size:24px">
+          全国大学生先进成图技术与产品信息建模创新大赛
+        </h2>
+        <p style="font-size:14px;color:#898989">
+          全国大学生先进成图技术与产品信息建模创新大赛是由教育部高等学校工程图学课程教学指导委员会、中国图学学会制图技术专业委员会、中国图学学会产品信息建模专业委员会联合主办的图学类课程最高级别的国家级赛事
+        </p>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  name: "Indroduce"
+};
+</script>
+<style></style>
+<template>
+  <div class="directed-department" style="height:700px;overflow:hidden">
+    <el-row style="height:100%">
+      <el-col
+        :span="12"
+        style="height:100%;display:flex;justify-content:center;align-items:center"
+      >
+        <img src="../assets/background1.png" alt="" style="width:600px" />
+      </el-col>
+      <el-col
+        :span="12"
+        style="height:100%;display:flex;justify-content:center;align-items:center"
+      >
+        <div>
+          <h2 style="font-size:24px">1.指导单位</h2>
+          <div style="font-size:17px;line-height:17px;color:#898989">
+            <p>中华共和国教育部</p>
+            <p>中华科学技术协会</p>
+            <p>中国图学学会</p>
+          </div>
+          <h2 style="font-size:24px">2.主办单位</h2>
+          <div style="font-size:17px;line-height:17px;color:#898989">
+            <p>教育部高等学校工程图学教学指导委员会</p>
+            <p>中国图学学会制图技术专业委员会</p>
+            <p>中国图学学会产品信息建模专业委员会</p>
+          </div>
+          <h2 style="font-size:24px">1.指导单位</h2>
+          <div style="font-size:17px;line-height:17px;color:#898989">
+            <p>高等教育出版社等</p>
+          </div>
+        </div>
+      </el-col>
+    </el-row>
+  </div>
+</template>
+<script>
+export default {
+  name: "Institution"
+};
+</script>
+<style></style>
+<template>
+  <div class="news-side" style="height:400px;overflow:hidden">
+    <el-row style="height:100%">
+      <el-col :span="6" v-for="o in 4" :key="o">
+        <el-card :body-style="{ padding: '2px' }" style="margin:50px">
+          <img
+            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+            style="overflow:hidden;height:70%"
+          />
+          <div style="padding: 3%;">
+            <span><font style="font-size:14px">新闻</font></span>
+            <div class="bottom clearfix">
+              <time class="time">{{ currentDate }}</time>
+              <el-button
+                type="text"
+                class="button"
+                style="float:right;color:#FF855F"
+                >查看详细</el-button
+              >
+            </div>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
+  </div>
+</template>
+<script>
+export default {};
+</script>
+<style></style>
+<template>
+  <div id="outerLayer" style="width:1440px;height:1080px">
+    <div style="width:1440px;height:350px;overflow:hidden;position:relative">
+      <img src="../assets/background4.jpg" alt />
+      <h2 style="position:absolute;left:1044px;top:215px;color:#fff;font-size:30px">报名工具</h2>
+    </div>
+    <div style="width:1440px;height:600px;display:flex;justify-content:center;align-items:center">
+      <div style="width:320px;height:180px;text-align:left">
+        <p style="text-align:left;font-size:24px">学校：</p>
+        <el-autocomplete
+        style="width:360px"
+          v-model="state"
+          :fetch-suggestions="querySearchAsync"
+          placeholder="请输入内容"
+          @select="handleSelect"
+        ></el-autocomplete>
+        <p style="text-align:left;font-size:24px">学生名单：</p>
+        <el-upload
+          class="upload-demo"
+          drag
+          action="https://jsonplaceholder.typicode.com/posts/"
+          multiple
+        >
+          <i class="el-icon-upload"></i>
+          <div class="el-upload__text">
+            将文件拖到此处，或
+            <em>点击上传</em>
+          </div>
+          <div class="el-upload__tip" slot="tip">只能上传xlsx文件，且不超过10MB</div>
+        </el-upload>
+      </div>
+    </div>
+  </div>
+</template>
+<style>
+#outerLater::-webkit-scrollbar {
+  display: none;
+}
+</style>
+<script>
+export default {
+  name: "Register"
+};
+</script><template>
+            <div
+            class="sign-up"
+            style="background-color: #ff7043;height:300px;overflow:hidden"
+          >
+            <el-row style="height:100%">
+              <el-col
+                style="height:100%;display:flex;justify-content:center;align-items:center"
+                :span="24"
+              >
+                <img
+                  style="width:150px;height:95px;margin:10px"
+                  src="../assets/icon-cloud_brief.png"
+                  alt=""
+                />
+                <div style="width:150px">
+                  <h2 style="font-size:24px;color:#fff">报名入口</h2>
+                  <p style="font-size:14px;color:#fff;line-height:14px">
+                    sign up entance
+                  </p>
+                  <el-button style="background:none">
+                    <font style="color:#fff">报名</font>
+                  </el-button>
+                </div>
+              </el-col>
+            </el-row>
+          </div>
+</template>
+<script>
+export default {
+}
+</script>
+<style>
+</style><template>
+  <div class="three-button">
+    <el-row style="height:100%">
+      <el-col
+        style="height:100%;display:flex;justify-content:center;align-items:center"
+        :span="8"
+      >
+        <div
+          style="width:190px;height:65px;display:flex;justify-content:center"
+        >
+          <img
+            src="../assets/find.png"
+            alt=""
+            style="width:65px;height:65px;display:inline;float:left"
+          />
+          <div style="float:left;margin:17px;color:#fff">
+            <h2 style="margin:0;font-size:20px">成绩查询</h2>
+            <p
+              style="margin:0 0 0 0; padding: -1 0 0 0;font-size:14px;line-height:9px"
+            >
+              Score query
+            </p>
+          </div>
+        </div>
+      </el-col>
+      <el-col
+        style="height:100%;display:flex;justify-content:center;align-items:center"
+        :span="8"
+      >
+        <div
+          style="width:190px;height:65px;display:flex;justify-content:center"
+        >
+          <img
+            src="../assets/new.png"
+            alt=""
+            style="width:65px;height:65px;display:inline;float:left"
+          />
+          <div style="float:left;margin:17px;color:#fff">
+            <h2 style="margin:0;font-size:20px">新闻公告</h2>
+            <p
+              style="margin:0 0 0 0; padding: -1 0 0 0;font-size:14px;line-height:9px"
+            >
+              News
+            </p>
+          </div>
+        </div>
+      </el-col>
+      <el-col
+        style="height:100%;display:flex;justify-content:center;align-items:center"
+        :span="8"
+      >
+        <div
+          style="width:190px;height:65px;display:flex;justify-content:center"
+        >
+          <img
+            src="../assets/document.png"
+            alt=""
+            style="width:65px;height:65px;display:inline;float:left"
+          />
+          <div style="float:left;margin:17px;color:#fff">
+            <h2 style="margin:0;font-size:20px">资料下载</h2>
+            <p
+              style="margin:0 0 0 0; padding: -1 0 0 0;font-size:10px;line-height:9px"
+            >
+              Data Download
+            </p>
+          </div>
+        </div>
+      </el-col>
+    </el-row>
+  </div>
+</template>
+<script>
+export default {
+  name: "ThreeButton"
+};
+</script>
+<style></style>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.0.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.nwpu</groupId>
+    <artifactId>sign_up_system</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>sign_up_system</name>
+    <description>Demo project for sign_up_system</description>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--mysql-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!--json-->
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib-ext-spring</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20160810</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <!--mybatis-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+        <!--lombok小辣椒小工具-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+            <version>1.18.0</version>
+        </dependency>
+        <!--poi-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+        <!-- springboot分页插件 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.7</version>
+        </dependency>
+        <!-- ********************* swagger********************************* -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.8.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.8.0</version>
+        </dependency>
+        <!-- ********************* swagger导出PDF/HTML所需依赖 START ********************************* -->
+        <dependency>
+            <groupId>io.github.swagger2markup</groupId>
+            <artifactId>swagger2markup</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+        <!-- ********************* swagger导出PDF/HTML所需依赖 END ********************************* -->
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+<!--            &lt;!&ndash;此插件生成ASCIIDOC&ndash;&gt;-->
+<!--            <plugin>-->
+<!--                <groupId>io.github.swagger2markup</groupId>-->
+<!--                <artifactId>swagger2markup-maven-plugin</artifactId>-->
+<!--                <version>1.2.0</version>-->
+<!--                <configuration>-->
+<!--                    &lt;!&ndash;此处端口一定要是当前项目启动所用的端口&ndash;&gt;-->
+<!--                    <swaggerInput>http://localhost/v2/api-docs</swaggerInput>-->
+<!--                    <outputDir>src/docs/asciidoc/generated</outputDir>-->
+<!--                    <config>-->
+<!--                        &lt;!&ndash; 除了ASCIIDOC之外，还有MARKDOWN和CONFLUENCE_MARKUP可选 &ndash;&gt;-->
+<!--                        <swagger2markup.markupLanguage>ASCIIDOC</swagger2markup.markupLanguage>-->
+<!--                    </config>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+            <!--此插件生成HTML和PDF-->
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>1.5.3</version>
+                <!-- Include Asciidoctor PDF for pdf generation -->
+                <dependencies>
+                    <dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj-pdf</artifactId>
+                        <version>1.5.0-alpha.10.1</version>
+                    </dependency>
+<!--                  手动导入  &lt;!&ndash; https://mvnrepository.com/artifact/org.asciidoctor/asciidoctorj-pdf &ndash;&gt;-->
+                    <dependency>
+                        <groupId>org.jruby</groupId>
+                        <artifactId>jruby-complete</artifactId>
+                        <version>1.7.24</version>
+                    </dependency>
+                </dependencies>
+                <!-- Configure generic document generation settings -->
+                <configuration>
+                    <sourceDirectory>src/docs/asciidoc/generated</sourceDirectory>
+                    <sourceHighlighter>coderay</sourceHighlighter>
+                    <attributes>
+                        <toc>left</toc>
+                    </attributes>
+                </configuration>
+                <!-- Since each execution can only handle one backend, run
+                     separate executions for each desired output type -->
+                <executions>
+                    <execution>
+                        <id>output-html</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>html5</backend>
+                            <outputDirectory>src/docs/asciidoc/html</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>output-pdf</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>pdf</backend>
+                            <outputDirectory>src/docs/asciidoc/pdf</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+/*
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+  https://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+*/
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.util.Properties;
+public class MavenWrapperDownloader {
+    /**
+     * Default URL to download the maven-wrapper.jar from, if no 'downloadUrl' is provided.
+     */
+    private static final String DEFAULT_DOWNLOAD_URL =
+            "https://repo.maven.apache.org/maven2/io/takari/maven-wrapper/0.4.2/maven-wrapper-0.4.2.jar";
+    /**
+     * Path to the maven-wrapper.properties file, which might contain a downloadUrl property to
+     * use instead of the default one.
+     */
+    private static final String MAVEN_WRAPPER_PROPERTIES_PATH =
+            ".mvn/wrapper/maven-wrapper.properties";
+    /**
+     * Path where the maven-wrapper.jar will be saved to.
+     */
+    private static final String MAVEN_WRAPPER_JAR_PATH =
+            ".mvn/wrapper/maven-wrapper.jar";
+    /**
+     * Name of the property which should be used to override the default download url for the wrapper.
+     */
+    private static final String PROPERTY_NAME_WRAPPER_URL = "wrapperUrl";
+    public static void main(String args[]) {
+        System.out.println("- Downloader started");
+        File baseDirectory = new File(args[0]);
+        System.out.println("- Using base directory: " + baseDirectory.getAbsolutePath());
+        // If the maven-wrapper.properties exists, read it and check if it contains a custom
+        // wrapperUrl parameter.
+        File mavenWrapperPropertyFile = new File(baseDirectory, MAVEN_WRAPPER_PROPERTIES_PATH);
+        String url = DEFAULT_DOWNLOAD_URL;
+        if (mavenWrapperPropertyFile.exists()) {
+            FileInputStream mavenWrapperPropertyFileInputStream = null;
+            try {
+                mavenWrapperPropertyFileInputStream = new FileInputStream(mavenWrapperPropertyFile);
+                Properties mavenWrapperProperties = new Properties();
+                mavenWrapperProperties.load(mavenWrapperPropertyFileInputStream);
+                url = mavenWrapperProperties.getProperty(PROPERTY_NAME_WRAPPER_URL, url);
+            } catch (IOException e) {
+                System.out.println("- ERROR loading '" + MAVEN_WRAPPER_PROPERTIES_PATH + "'");
+            } finally {
+                try {
+                    if (mavenWrapperPropertyFileInputStream != null) {
+                        mavenWrapperPropertyFileInputStream.close();
+                    }
+                } catch (IOException e) {
+                    // Ignore ...
+                }
+            }
+        }
+        System.out.println("- Downloading from: : " + url);
+        File outputFile = new File(baseDirectory.getAbsolutePath(), MAVEN_WRAPPER_JAR_PATH);
+        if (!outputFile.getParentFile().exists()) {
+            if (!outputFile.getParentFile().mkdirs()) {
+                System.out.println(
+                        "- ERROR creating output direcrory '" + outputFile.getParentFile().getAbsolutePath() + "'");
+            }
+        }
+        System.out.println("- Downloading to: " + outputFile.getAbsolutePath());
+        try {
+            downloadFileFromURL(url, outputFile);
+            System.out.println("Done");
+            System.exit(0);
+        } catch (Throwable e) {
+            System.out.println("- Error downloading");
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }
+    private static void downloadFileFromURL(String urlString, File destination) throws Exception {
+        URL website = new URL(urlString);
+        ReadableByteChannel rbc;
+        rbc = Channels.newChannel(website.openStream());
+        FileOutputStream fos = new FileOutputStream(destination);
+        fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+        fos.close();
+        rbc.close();
+    }
+}
+package com.nwpu.sign_up_system;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+//@EnableAutoConfiguration
+@SpringBootApplication
+public class SignUpSystemApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(SignUpSystemApplication.class, args);
+    }
+}
+package com.nwpu.sign_up_system;
+/**
+ * @Author = The Great Ke
+ * @description:
+ * @Date: Creat in 14:12 2019/11/20
+ * @modified by :
+ */
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+/**
+ * @author : Aslan
+ * @version : v1.0
+ * @time : 2018-07-24 14:57
+ * @desc : Swagger2配置类
+ */
+@Configuration
+@EnableSwagger2
+public class Swagger2Config extends WebMvcConfigurationSupport {
+    /**
+     * 因为 Swagger2的资源文件都是在jar包里面，如果不在此处配置加载静态资源，
+     * 会导致请求http://localhost:8081/swagger-ui.html失败
+     *  <!--swagger资源配置-->
+     *  <mvc:resources location="classpath:/META-INF/resources/" mapping="swagger-ui.html"/>
+     *  <mvc:resources location="classpath:/META-INF/resources/webjars/" mapping="/webjars/**"/>
+     *
+     * @param registry
+     */
+    @Override
+    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
+    @Bean
+    public Docket createRestApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.nwpu.sign_up_system.controller"))
+                .paths(PathSelectors.any())
+                .build()
+                //不需要时，或者生产环境可以在此处关闭
+                .enable(true);
+    }
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("省赛报名系统后端接口文档（部分）")
+                .description("后端使用springboot开发，接口文档使用Swagger2生成")
+                //服务条款网址
+                .termsOfServiceUrl("https://github.com/thegreatke")
+                .version("1.5")
+                .build();
+    }
+}
+package com.nwpu.sign_up_system.controller;
+import com.nwpu.sign_up_system.service.ExcelService;
+import com.nwpu.sign_up_system.utils.Download_file_util;
+import com.nwpu.sign_up_system.utils.Upload_file_util;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+@Api(tags="用户上传或者下载文件的Controller")
+@ResponseBody
+@Controller
+public class FilesController {
+    @Autowired
+    ExcelService excelService;
+    @ApiModelProperty(value = "上传文件")
+    @PostMapping("/uploadfile")
+    @ApiResponses({
+            @ApiResponse(code=400,message="fileName参数格式不正确"),
+            @ApiResponse(code=404,message="上传过程出错")
+            ,@ApiResponse(code=503,message="本地没有查找到这个文件的信息")
+    })
+    public String upload(@RequestParam("uploadFile") MultipartFile uploadFile) throws Exception {
+        //此处应有检查上传文件的后缀名.
+        Upload_file_util upload_file_util = new Upload_file_util();
+        String fileNameStus = upload_file_util.upload(uploadFile);//上传成功则返回存放文件的路径
+        if (fileNameStus.equals("error_01")) return "上传失败，上传文件为空。";
+        else if (fileNameStus.equals("error_02")) return "请上传2007年后新版的excel文件，比如：**.xlsx";
+        else {
+            String result = excelService.saveStudentsToSQL(excelService.getStudentsList(fileNameStus));//保存至sql数据库
+            return result;
+        }
+    }
+    //文件下载相关代码
+    @ApiModelProperty(value = "下载文件")
+    @RequestMapping(value = "/downloadfile", method = RequestMethod.POST)
+    @ApiResponses({
+            @ApiResponse(code=400,message="fileName参数格式不正确"),
+            @ApiResponse(code=404,message="下载过程出错")
+            ,@ApiResponse(code=503,message="没有查找到这个文件的信息")
+    })
+    public String downloadFile(HttpServletRequest request, HttpServletResponse response, @RequestParam("fileName") String fileName) {
+        Download_file_util download_file_util = new Download_file_util();
+        return download_file_util.downloadFile(request, response, fileName);
+    }
+}
+package com.nwpu.sign_up_system.controller;
+import com.nwpu.sign_up_system.service.NewsService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import net.sf.json.JSONObject;
+import org.apache.commons.collections4.Get;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import java.util.Date;
+@Api(tags="网站发布热点新闻的Controller")
+@Controller
+@ResponseBody
+public class NewsController {
+    @Autowired
+    NewsService newsService;
+    @ApiModelProperty(value = "发布新闻")
+    @RequestMapping(value = "/publishNews", method = RequestMethod.POST)
+    @ApiResponses({
+            @ApiResponse(code=400,message="发布新闻的参数格式不正确"),
+            @ApiResponse(code=404,message="新闻字符串参数过长，超出限制")
+    })
+    public String publishNews(@RequestParam("title") String title,
+//                            @RequestParam("id") int id,
+                              @RequestParam("date") Date date,
+                              @RequestParam("content") String content,
+                              @RequestParam("sender") String sender,
+                              @RequestParam("tag") String tag
+    ) {
+        return newsService.publishNews(title, date, content, sender, tag);
+    }
+    @ApiModelProperty(value = "返回所有的新闻")
+    @RequestMapping(value = "/findAllNews", method = RequestMethod.GET)
+    public JSONObject findAllNews() {
+        return newsService.findAllNews();
+    }
+    @ApiResponses({
+            @ApiResponse(code=400,message="请求删除的id参数没填"),
+            @ApiResponse(code=404,message="数据库中没有此对应此id的新闻")
+    })
+    @ApiModelProperty(value = "删除某一条新闻")
+    @RequestMapping(value = "/deleteOneNew", method = RequestMethod.POST)
+    public String findAllNews(@RequestParam("id") int id) {
+        String title = newsService.findTitleById(id);
+        if (title == null) return "id is not exist, failed!";
+        else return newsService.deleteNews(id);
+    }
+}
+package com.nwpu.sign_up_system.controller;
+import com.nwpu.sign_up_system.service.StudentService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import net.sf.json.JSONArray;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+@Api(tags="管理学生用户信息，执行相关操作的Controller")
+@ResponseBody
+@Controller
+public class StudentController {
+    @Autowired
+    StudentService studentService;
+    /**
+     * 返回所有学生的报名信息。
+     *
+     * @return jsonArray
+     */
+    @ApiModelProperty(value = "得到所有的学生信息")
+    @ApiResponses({
+            @ApiResponse(code=400,message="学生信息数据库为空"),
+            @ApiResponse(code=500,message="服务器没有响应")
+    })
+    @RequestMapping(value = "/findAllStudents", method = RequestMethod.GET)
+    public JSONArray findAllNews() {
+        return studentService.findAllStudents();
+    }
+    /**
+     * 指定删除某一学生的报名信息
+     *
+     * @param id
+     * @return
+     */
+    @Transactional
+    @RequestMapping(value = "/deleteStudent", method = RequestMethod.POST)
+    @ApiModelProperty(value = "删除某个学生的相关数据")
+    @ApiResponses({
+            @ApiResponse(code=400,message="学生id的参数格式不正确"),
+            @ApiResponse(code=404,message="数据库中不存在这个学生，查无此人")
+    })
+    public String deleteStudent(@RequestParam int id) {
+        return studentService.deleteStudent(id);
+    }
+    /**
+     * 首次录入某一学生的得分分数
+     *
+     * @param id
+     * @return
+     */
+    @Transactional
+    @RequestMapping(value = "/addScoreToStudent", method = RequestMethod.POST)
+    @ApiModelProperty(value = "录入得分")
+    @ApiResponses({
+            @ApiResponse(code=400,message="携带的id和score参数格式不正确"),
+            @ApiResponse(code=404,message="score过大，超出分数限制")
+            ,@ApiResponse(code=503,message="数据库查无此人")
+    })
+    String addScoreToStudent(@RequestParam int id, @RequestParam int score) {
+        return studentService.addScoreToStudent(id, score);
+    }
+    /**
+     * 修改某一学生的得分分数
+     *
+     * @param id
+     * @return
+     */
+    @Transactional
+    @ApiModelProperty(value = "修改得分")
+    @ApiResponses({
+            @ApiResponse(code=400,message="携带的id和score参数格式不正确"),
+            @ApiResponse(code=404,message="score过大或者为负，违背分数的范围限制")
+            ,@ApiResponse(code=503,message="数据库查无此人")
+    })
+    @RequestMapping(value = "/changeScoreToStudent", method = RequestMethod.POST)
+    String changeScoreToStudent(@RequestParam int id, @RequestParam int score) {
+        return studentService.addScoreToStudent(id, score);
+    }
+    /**
+     * 学号和姓名同时匹配, 查询某一学生所得的分数
+     *
+     * @param id , name
+     * @return string , 实现了容错处理。
+     */
+    @Transactional
+    @ApiModelProperty(value = "查询分数")
+    @ApiResponses({
+            @ApiResponse(code=400,message="携带的id和name参数格式不正确"),
+            @ApiResponse(code=404,message="对应Id和name不匹配")
+            ,@ApiResponse(code=503,message="数据库查无匹配的结果")
+    })
+    @RequestMapping(value = "/getScoreOfStudent", method = RequestMethod.GET)
+    String getScoreOfStudent(@RequestParam int id, @RequestParam String name) {
+        int score = studentService.getScoreOfStudent(id, name);
+        String score_str;
+        if (score == -1) {
+            score_str = "没有查询到和学号以及姓名同时匹配的账户，请检查输入的学号和姓名是否正确.";
+        } else if (score == -2) {
+            score_str = "此同学的得分成绩尚未录入，请耐心等待， 日后再次查询.";
+        } else score_str = Integer.toString(score);
+        return score_str;
+    }
+}
+package com.nwpu.sign_up_system.mapper;
+import com.nwpu.sign_up_system.model.News;
+import io.swagger.annotations.Api;
+import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
+import java.sql.SQLException;
+import java.util.List;
+@Api(tags="管理新闻事务的Mapper")
+@Mapper
+@Repository
+public interface NewsMapper {
+    @Insert("insert into news(title, id, date, content, sender,tag) " +
+            "values(#{title},#{id},#{date},#{content},#{sender},#{tag})")
+    void pulishNews(News news) throws SQLException;
+    @Select("select * from news order by id desc")
+    List<News> findAllNews();
+    @Delete("delete  from news where id = #{id}")
+    void deleteOneNews(@Param("id") int id) throws SQLException;
+    @Select("select title from news where id = #{id}")
+    String findTitleById(@Param("id") int id);
+}
+package com.nwpu.sign_up_system.mapper;
+import com.nwpu.sign_up_system.model.Students;
+import io.swagger.annotations.Api;
+import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
+import java.sql.SQLException;
+import java.util.ArrayList;
+@Api(tags="管理学生事务，和数据库对接的Mapper")
+@Mapper
+@Repository
+public interface StudentsMapper {
+    @Select("select * from students ")
+    ArrayList<Students> selectAllStudent() throws SQLException;
+    @Insert("insert into students(name, id, teacher_name, is_pay_fee) " +
+            "values(#{name},#{id},#{teacher_name},#{is_pay_fee})")
+    void addStudent(Students students) throws SQLException;
+    @Delete("delete  from students where id = #{id}")
+    void deleteStudent(int id) throws SQLException;
+    @Update("update  students set score = #{score} where id = #{id}")
+    void updateScoreOfStudent(int id, int score) throws SQLException;
+    @Select("select IFNULL ((select IFNULL(score, -2) from students where id = #{id} and name = #{name}), -1)")
+    int selectScoreOfStudent(int id, String name) throws SQLException;
+}
+package com.nwpu.sign_up_system.model;
+import io.swagger.annotations.Api;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import java.util.Date;
+@Api(tags="管理新闻的实体类")
+@AllArgsConstructor
+@Data
+@NoArgsConstructor  //无参构造函数，对象映射使用
+public class News {
+    private String title; //标题
+    private int id;   //主键
+    private Date date; //time
+    private String content; //内容
+    private String sender;  //发布单位
+    private String tag;   //标签
+    public News(String title, Date date, String content, String sender, String tag) {
+        this.title = title;
+        this.date = date;
+        this.content = content;
+        this.sender = sender;
+        this.tag = tag;
+    }
+}
+package com.nwpu.sign_up_system.model;
+import io.swagger.annotations.Api;
+import lombok.Data;
+@Api(tags="学生的实体类")
+@Data
+public class Students {
+    private int id;
+    private String name;
+    private String schoolName;
+    private int score;
+    private String teacherName;
+    private boolean isPayFee;
+    private String examType;
+    public Students() {
+    }
+    public Students(int id, String name, String teacherName, boolean isPayFee) {
+        this.id = id;
+        this.name = name;
+        this.teacherName = teacherName;
+        this.isPayFee = isPayFee;
+    }
+}
+package com.nwpu.sign_up_system.service;
+import com.nwpu.sign_up_system.model.Students;
+import io.swagger.annotations.Api;
+import org.springframework.stereotype.Service;
+import java.io.IOException;
+import java.util.List;
+@Api(tags="实现excel表单上传的Service组件")
+@Service
+public interface ExcelService {
+    /**
+     * 从指定路径的excel中读出所有的学生对象并放置于一个数组中
+     *
+     * @param filePath excel的文件路径
+     * @return
+     */
+    List<Students> getStudentsList(String filePath) throws IOException;
+    String saveStudentsToSQL(List<Students> students) throws Exception;
+}
+package com.nwpu.sign_up_system.service;
+import io.swagger.annotations.Api;
+import net.sf.json.JSONObject;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import java.util.Date;
+@Service
+@Api(tags="实现News相关操作的Service组件")
+public interface NewsService {
+    /**
+     * 发布一条新闻
+     *
+     * @param title
+     * @param date
+     * @param content
+     * @param sender
+     * @param tag
+     */
+    @Transactional
+    String publishNews(String title, Date date, String content, String sender, String tag);
+    /**
+     * 指定删除某一条新闻动态
+     *
+     * @param id
+     * @return
+     */
+    @Transactional
+    String deleteNews(int id);
+    /**
+     * 返回当前标签下的所有的新闻动态
+     *
+     * @param tag
+     * @return
+     */
+    JSONObject findAllTagNews(String tag);
+    /**
+     * 返回所有的新闻
+     *
+     * @return
+     */
+    JSONObject findAllNews();
+    /**
+     * @return title
+     */
+    String findTitleById(int id);
+}
+package com.nwpu.sign_up_system.service;
+import io.swagger.annotations.Api;
+import net.sf.json.JSONArray;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+@Api(tags="实现News相关操作的Service组件")
+@Service
+public interface StudentService {
+    /**
+     * 指定删除某一学生的报名信息
+     *
+     * @param id
+     * @return
+     */
+    @Transactional
+    String deleteStudent(int id);
+    /**
+     * 首次录入某一学生的得分分数
+     *
+     * @param id
+     * @return
+     */
+    @Transactional
+    String addScoreToStudent(int id, int score);
+    /**
+     * 修改某一学生的得分分数
+     *
+     * @param id
+     * @return
+     */
+    @Transactional
+    String changeScoreToStudent(int id, int score);
+    /**
+     * 学号和姓名同时匹配, 查询某一学生所得的分数
+     *
+     * @param id
+     * @return
+     */
+    int getScoreOfStudent(int id, String name);
+    /**
+     * 返回所有学生的报名信息。
+     *
+     * @return
+     */
+    JSONArray findAllStudents();
+}
