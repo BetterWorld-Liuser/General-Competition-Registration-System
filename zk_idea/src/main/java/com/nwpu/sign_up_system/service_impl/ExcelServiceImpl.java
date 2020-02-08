@@ -61,6 +61,15 @@ public class ExcelServiceImpl implements ExcelService {
                     continue;
                 }
                 students.setPayFee(pay.getBooleanCellValue());//bool
+
+                //新增属性：学生所属学校
+                Cell schoolName = row.getCell(4);
+                if (schoolName == null) {
+                    continue;
+                }
+                students.setSchoolName(schoolName.getStringCellValue());
+
+
                 studentsList.add(students);
             }
         }
