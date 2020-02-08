@@ -30,7 +30,7 @@ public class Swagger2Config extends WebMvcConfigurationSupport {
 
     /**
      * 因为 Swagger2的资源文件都是在jar包里面，如果不在此处配置加载静态资源，
-     * 会导致请求http://localhost:8081/swagger-ui.html失败
+     * 会导致请求http://localhost/swagger-ui.html失败
      *  <!--swagger资源配置-->
      *  <mvc:resources location="classpath:/META-INF/resources/" mapping="swagger-ui.html"/>
      *  <mvc:resources location="classpath:/META-INF/resources/webjars/" mapping="/webjars/**"/>
@@ -39,7 +39,7 @@ public class Swagger2Config extends WebMvcConfigurationSupport {
      */
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("swagger")
+        registry.addResourceHandler("swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/");
 
         registry.addResourceHandler("/webjars/**")
