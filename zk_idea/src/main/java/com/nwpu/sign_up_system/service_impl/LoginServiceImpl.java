@@ -2,6 +2,7 @@ package com.nwpu.sign_up_system.service_impl;
 
 import com.nwpu.sign_up_system.mapper.AdminMapper;
 import com.nwpu.sign_up_system.service.LoginService;
+import com.nwpu.sign_up_system.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

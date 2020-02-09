@@ -1,6 +1,7 @@
 package com.nwpu.sign_up_system.controller;
 
 import com.nwpu.sign_up_system.service.LoginService;
+import com.nwpu.sign_up_system.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces="text/plain;charset=UTF-8")
     String login(@RequestParam String id, @RequestParam String password) {
 
+        password = MD5Util.getMD5(password); //md5加密
 
         int respons = loginService.adminLogin(id, password);
 
@@ -42,6 +44,7 @@ public class LoginController {
     @RequestMapping(value = "/register", method = RequestMethod.POST, produces="text/plain;charset=UTF-8")
     String register(@RequestParam String id, @RequestParam String password) {
 
+        password = MD5Util.getMD5(password); //md5加密
         int respons = loginService.adminRegister(id, password);
 
         if (respons == 1 ) return "注册管理员成功";
