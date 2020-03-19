@@ -8,15 +8,24 @@
         >
       </p>
       <div style="margin-top:70px">
-        <el-button
-          class="button-first"
-          style="height:50px;width:160px;font-size:17px;background-color:#fff"
-          >报名</el-button
+        <router-link
+          to="/register"
+          style="
+        padding-right:10px
+        "
+          ><el-button
+            class="button-first"
+            style="height:50px;width:160px;font-size:17px;background-color:#fff"
+            >报名</el-button
+          ></router-link
         >
-        <el-button
-          type="danger"
-          style="height:50px;width:160px;background-color:#FF7043;font-size:17px"
-          >了解更多</el-button
+
+        <router-link to="/information"
+          ><el-button
+            type="danger"
+            style="height:50px;width:160px;background-color:#FF7043;font-size:17px"
+            >了解更多</el-button
+          ></router-link
         >
       </div>
     </div>
