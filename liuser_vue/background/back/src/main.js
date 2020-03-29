@@ -8,7 +8,7 @@ import http from './request/http'
 
 Vue.use(ElementUI)
 Vue.use(VueRouter)
-Vue.config.productionTip = false
+Vue.config.productionTip = true
 
 
 const router = new VueRouter({

@@ -10,7 +10,8 @@
           <el-input v-model="form.password"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary">
+          <el-button type="primary"
+          @click="jump">
               登录
           </el-button>
         </el-form-item>
@@ -28,6 +29,11 @@ export default {
         password: ""
       }
     };
+  },
+  methods:{
+    jump(){
+      this.$router.push({path:'/setting/'})
+    }
   }
 };
 </script>
