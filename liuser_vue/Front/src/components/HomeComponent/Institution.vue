@@ -5,7 +5,8 @@
         :span="12"
         style="height:100%;display:flex;justify-content:center;align-items:center"
       >
-        <img src="../../assets/background1.png" alt="" style="width:600px" />
+        <div class='imginstitusion'
+         width:600px></div>
       </el-col>
       <el-col
         :span="12"
@@ -42,4 +43,19 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.imginstitusion {
+  width: 80%;
+  height: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: url('https://user-gold-cdn.xitu.io/2020/3/29/17125992d200dfe3?w=980&h=320&f=jpeg&s=82086');
+  background-attachment: fixed;
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center
+}
+
+</style>

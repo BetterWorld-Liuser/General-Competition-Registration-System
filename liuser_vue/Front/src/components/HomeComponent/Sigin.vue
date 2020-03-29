@@ -18,7 +18,7 @@
           <p style="font-size:14px;color:#fff;line-height:14px">
             sign up entance
           </p>
-          <el-button style="background:none">
+          <el-button style="background:none" @click="jump">
             <font style="color:#fff">报名</font>
           </el-button>
         </div>
@@ -28,7 +28,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods:{
+    jump(){
+      this.$router.push({path:"login"})
+    }
+  }
+};
 </script>
 
 <style></style>

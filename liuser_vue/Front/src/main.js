@@ -7,7 +7,7 @@ import axios from "axios";
 import VueRouter from "vue-router";
 import router from "./Router/router";
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = true;
 Vue.prototype.$axios = axios;
 
 Vue.use(VueRouter);

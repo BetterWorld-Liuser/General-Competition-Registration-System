@@ -6,9 +6,8 @@
           :default-active="activeIndex"
           class="el-menu-demo"
           mode="horizontal"
-          @select="handleSelect"
           style="font-size:10vh;width:100%"
-          router="true"
+          :router="routerSwitch"
         >
           <el-menu-item index="1" class="mechanic-logo">
             <a id="logo" href="/">
@@ -22,9 +21,8 @@
 
           <el-menu-item index="/" class="load">首页</el-menu-item>
           <el-menu-item index="/register">报名</el-menu-item>
-          <el-menu-item index="6">联系我们</el-menu-item>
           <el-menu-item index="/GetScore">获奖查询</el-menu-item>
-          <el-menu-item index="/Sigin">登录</el-menu-item>
+          <el-menu-item index="/login">组织者登录</el-menu-item>
         </el-menu>
         <div class="line"></div>
       </el-header>
@@ -43,7 +41,16 @@ export default {
   name: "HomePage",
   components: {
     Footer
+  },
+  data(){
+    return{
+      activeIndex:'',
+      routerSwitch:true
+    }
+  },
+  method:{
   }
+  
 };
 </script>
 
@@ -121,5 +128,11 @@ a:hover {
 
 .mechanic-logo {
   float: none;
+}
+.el-menu-item:hover{
+  font-size: 17px;
+  font-weight: bold;
+  
+
 }
 </style>
