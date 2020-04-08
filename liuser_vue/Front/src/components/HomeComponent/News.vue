@@ -1,16 +1,17 @@
 <template>
-  <div class="news-side" style="height:400px;overflow:hidden">
+  <div id="news" class="news-side" style="height:400px;overflow:hidden">
     <el-row style="height:100%">
-      <el-col :span="6" v-for="count in 4" :key="count">
+      <el-col :span="6" v-for="item in newsArr" :key="item.name">
         <el-card :body-style="{ padding: '2px' }" style="margin:50px">
           <img
-            src="https://tse1.mm.bing.net/th?id=OIP.YpXu31MI7KveHA7So5BYTwHaE7&w=218&h=160&c=8&rs=1&qlt=90&dpr=1.25&pid=3.1&rm=2"
+            :src="item.imgUrl"
             style="overflow:hidden;height:200px;width:180px;margin-top:30px"
+            crossOrigin = "anonymous"
           />
           <div style="padding: 3%;">
-            <span><font style="font-size:14px">今日消息</font></span>
+            <span><font style="font-size:14px">{{item.name}}</font></span>
             <div class="bottom clearfix">
-              <div style="float:left">2020/1/13</div>
+              <div style="float:left">{{item.time}}</div>
               <el-button
                 type="text"
                 class="button"
@@ -26,7 +27,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data(){
+    return{
+      newsArr:[
+        {
+          name:"2019届成图大赛举办成功",
+          imgUrl:"https://user-gold-cdn.xitu.io/2020/3/29/17125cd350be4682?w=325&h=265&f=png&s=155105",
+          time:"2019/10/10"
+        }
+      ]
+    }
+  }
+};
 </script>
 
 <style></style>

@@ -6,6 +6,8 @@
         :span="8"
       >
         <div
+        class="scoreButton"
+          @click="jumpTogetscore"
           style="width:190px;height:65px;display:flex;justify-content:center"
         >
           <img
@@ -28,6 +30,8 @@
         :span="8"
       >
         <div
+        class="newsButton"
+        @click="jumpToNews"
           style="width:190px;height:65px;display:flex;justify-content:center"
         >
           <img
@@ -50,6 +54,8 @@
         :span="8"
       >
         <div
+        class="filesButton"
+          @click="jumpToFiledownload"
           style="width:190px;height:65px;display:flex;justify-content:center"
         >
           <img
@@ -73,8 +79,31 @@
 
 <script>
 export default {
-  name: "ThreeButton"
+  name: "ThreeButton",
+  methods:{
+    jumpTogetscore(){
+      this.$router.push({name:"GetScore"})
+    },
+    jumpToNews(){
+      window.location.hash='#news'
+    },
+    jumpToFiledownload(){
+      window.location.hash='#filedownload'
+    }
+
+  }
+
 };
 </script>
 
-<style></style>
+<style>
+.scoreButton{
+  cursor: pointer;
+}
+.newsButton{
+  cursor: pointer;
+}
+.filesButton{
+  cursor: pointer;
+}
+</style>

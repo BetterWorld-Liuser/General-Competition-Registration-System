@@ -1,7 +1,7 @@
 <template>
   <div
     class="file-dowload-title"
-    style="position:relative; height:200px; overflow:hidden"
+    style="position:relative; height:180px; overflow:hidden"
   >
     <img src="../../assets/2.jpg" alt="" style="width:100%" />
     <p
