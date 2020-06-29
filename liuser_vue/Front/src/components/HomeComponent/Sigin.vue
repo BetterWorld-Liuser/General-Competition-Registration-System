@@ -13,9 +13,9 @@
           src="../../assets/icon-cloud_brief.png"
           alt=""
         />
-        <div style="width:150px">
-          <h2 style="font-size:24px;color:#fff">报名入口</h2>
-          <p style="font-size:14px;color:#fff;line-height:14px">
+        <div style="width:500px">
+          <h2 style="font-size:1.7rem;color:#fff">报名入口</h2>
+          <p style="font-size:1.7rem;color:#fff;line-height:14px">
             sign up entance
           </p>
           <el-button style="background:none" @click="jump">
@@ -37,4 +37,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.el-button:hover{
+font-weight: bold;
+}
+</style>

@@ -1,12 +1,19 @@
 <template>
   <div class="app-homepage">
-    <el-container style="display:flex">
-      <el-header style="width:100%;overflow:hidden;height:80px">
-        <el-menu
+    <el-container style="display: flex;">
+      <el-header  class = 'header' style="width: 1440px; overflow: hidden; height: 80px;">
+        <a id="logo" href="/">
+              <img
+                class="img-logo"
+                src="../assets/gear.png"
+                alt="mechanic logo"
+              />
+            </a>
+        <!-- <el-menu
           :default-active="activeIndex"
           class="el-menu-demo"
           mode="horizontal"
-          style="font-size:10vh;width:100%"
+          style="font-size: 10vh; width: 100%;"
           :router="routerSwitch"
         >
           <el-menu-item index="1" class="mechanic-logo">
@@ -23,11 +30,17 @@
           <el-menu-item index="/register">报名</el-menu-item>
           <el-menu-item index="/GetScore">获奖查询</el-menu-item>
           <el-menu-item index="/login">组织者登录</el-menu-item>
-        </el-menu>
-        <div class="line"></div>
+        </el-menu> -->
+        <ul class='nav'>
+          <li><a href="/">首页</a></li>
+          <li><a href="/register">报名</a></li>
+          <li><a href="/GetScore">获奖查询</a></li>
+          <li><a href="/login">组织者登录</a></li>
+        </ul>
+        
       </el-header>
 
-      <el-main style="margin: 0 auto;height:auto;">
+      <el-main style="margin: 0 auto; height: auto;">
         <router-view></router-view>
       </el-main>
       <Footer></Footer>
@@ -40,21 +53,50 @@ import Footer from "./HomeComponent/Footer";
 export default {
   name: "HomePage",
   components: {
-    Footer
+    Footer,
   },
-  data(){
-    return{
-      activeIndex:'',
-      routerSwitch:true
-    }
+  data() {
+    return {
+      activeIndex: "",
+      routerSwitch: true,
+    };
   },
-  method:{
-  }
-  
+  method: {},
 };
 </script>
 
 <style>
+header{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#logo{
+  display: inline-block;
+}
+.nav{
+  display: inline-block;
+  width: 100%;
+  text-align: start;
+}
+.nav li {
+  display: inline;
+  text-decoration: none;
+  list-style: none;
+  margin:20px;
+  text-align: center;
+  font-size: 1.2rem;
+  
+}
+ul li a {
+  color:black;
+}ul li a:hover {
+  color:black;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
 .three-button {
   width: auto;
   background-color: #ff7043;
@@ -129,10 +171,12 @@ a:hover {
 .mechanic-logo {
   float: none;
 }
-.el-menu-item:hover{
-  font-size: 17px;
-  font-weight: bold;
-  
-
+li.el-menu-item {
+  font-size: 1rem;
 }
+.el-menu-item:hover {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 </style>

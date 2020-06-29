@@ -36,6 +36,7 @@
             只能上传xlsx文件，且不超过10MB
           </div>
         </el-upload>
+        <el-button type='primary'>确认</el-button>
       </div>
     </div>
   </div>

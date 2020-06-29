@@ -6,7 +6,6 @@
           <img
             :src="item.imgUrl"
             style="overflow:hidden;height:200px;width:180px;margin-top:30px"
-            crossOrigin = "anonymous"
           />
           <div style="padding: 3%;">
             <span><font style="font-size:14px">{{item.name}}</font></span>
@@ -33,7 +32,7 @@ export default {
       newsArr:[
         {
           name:"2019届成图大赛举办成功",
-          imgUrl:"https://user-gold-cdn.xitu.io/2020/3/29/17125cd350be4682?w=325&h=265&f=png&s=155105",
+          imgUrl:"https://s1.ax1x.com/2020/04/04/GdljjP.png",
           time:"2019/10/10"
         }
       ]

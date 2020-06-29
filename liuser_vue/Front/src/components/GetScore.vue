@@ -21,7 +21,7 @@
           <p style="font-size:20px">请输入比赛编号/身份证号：</p>
           <el-input
             v-model="input"
-            placeholder="请输入内容"
+            placeholder="请输入姓名/考号"
             style="width:600px"
           ></el-input>
           <el-button type="success" plain style="display:none"

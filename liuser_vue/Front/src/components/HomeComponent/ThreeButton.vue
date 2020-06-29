@@ -8,7 +8,7 @@
         <div
         class="scoreButton"
           @click="jumpTogetscore"
-          style="width:190px;height:65px;display:flex;justify-content:center"
+          style="width:300px;height:65px;display:flex;justify-content:center"
         >
           <img
             src="../../assets/find.png"
@@ -16,7 +16,7 @@
             style="width:65px;height:65px;display:inline;float:left"
           />
           <div style="float:left;margin:17px;color:#fff">
-            <h2 style="margin:0;font-size:20px">成绩查询</h2>
+            <h2 style="margin:0;">成绩查询</h2>
             <p
               style="margin:0 0 0 0; padding: -1 0 0 0;font-size:14px;line-height:9px"
             >
@@ -32,7 +32,7 @@
         <div
         class="newsButton"
         @click="jumpToNews"
-          style="width:190px;height:65px;display:flex;justify-content:center"
+          style="width:300px;height:65px;display:flex;justify-content:center"
         >
           <img
             src="../../assets/new.png"
@@ -40,7 +40,7 @@
             style="width:65px;height:65px;display:inline;float:left"
           />
           <div style="float:left;margin:17px;color:#fff">
-            <h2 style="margin:0;font-size:20px">新闻公告</h2>
+            <h2 style="margin:0;">新闻公告</h2>
             <p
               style="margin:0 0 0 0; padding: -1 0 0 0;font-size:14px;line-height:9px"
             >
@@ -56,7 +56,7 @@
         <div
         class="filesButton"
           @click="jumpToFiledownload"
-          style="width:190px;height:65px;display:flex;justify-content:center"
+          style="width:300px;height:65px;display:flex;justify-content:center"
         >
           <img
             src="../../assets/document.png"
@@ -64,7 +64,7 @@
             style="width:65px;height:65px;display:inline;float:left"
           />
           <div style="float:left;margin:17px;color:#fff">
-            <h2 style="margin:0;font-size:20px">资料下载</h2>
+            <h2 style="margin:0;">资料下载</h2>
             <p
               style="margin:0 0 0 0; padding: -1 0 0 0;font-size:10px;line-height:9px"
             >
@@ -99,11 +99,26 @@ export default {
 <style>
 .scoreButton{
   cursor: pointer;
+  font-size: 1rem;
+}
+.scoreButton:hover {
+  cursor: pointer;
+  font-size: 1.2rem;
 }
 .newsButton{
   cursor: pointer;
+  font-size: 1rem;
+}
+.newsButton:hover {
+  cursor: pointer;
+  font-size: 1.2rem;
 }
 .filesButton{
   cursor: pointer;
+  font-size: 1rem;
+}
+.filesButton:hover{
+  cursor: pointer;
+  font-size: 1.2rem;
 }
 </style>

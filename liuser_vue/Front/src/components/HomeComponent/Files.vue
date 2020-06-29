@@ -20,18 +20,22 @@ export default {
   data(){
     return{
       files:{
-        title:'第2020届成图大赛文件集合',
+        title:'比赛的通知文件',
         fileArr:[
           {
-          name:"第2020届成图大赛指南文件",
+          name:"2018年比赛的通知文件",
           downloadUrl:'https://user-gold-cdn.xitu.io/2020/3/29/17125992d200dfe3?w=980&h=320&f=jpeg&s=82086'
         },
           {
-          name:"第2020届成图大赛报名表",
+          name:"2017年比赛的通知文件",
           downloadUrl:'https://user-gold-cdn.xitu.io/2020/3/29/17125992d200dfe3?w=980&h=320&f=jpeg&s=82086'
         },
           {
-          name:"第2020届成图大赛统计表",
+          name:"2016年比赛的通知文件",
+          downloadUrl:'https://user-gold-cdn.xitu.io/2020/3/29/17125992d200dfe3?w=980&h=320&f=jpeg&s=82086'
+        },
+          {
+          name:"2015年比赛的通知文件",
           downloadUrl:'https://user-gold-cdn.xitu.io/2020/3/29/17125992d200dfe3?w=980&h=320&f=jpeg&s=82086'
         },
         ]
@@ -43,7 +47,7 @@ export default {
 
 <style scoped>
 h1{
-  font-size:20px;
+  font-size:2rem;
 }
 .file-dowload{
   display:flex;
