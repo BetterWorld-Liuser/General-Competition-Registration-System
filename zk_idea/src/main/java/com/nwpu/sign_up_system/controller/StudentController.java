@@ -1,5 +1,6 @@
 package com.nwpu.sign_up_system.controller;
 
+import com.nwpu.sign_up_system.model.Students;
 import com.nwpu.sign_up_system.service.StudentService;
 import io.swagger.annotations.*;
 import net.sf.json.JSONArray;
@@ -48,6 +49,35 @@ public class StudentController {
     public String deleteStudent(@RequestParam int id) {
         return studentService.deleteStudent(id);
     }
+
+
+    /**
+     * 添加学生
+     */
+
+    public String addStudent(@RequestParam int id,@RequestParam String name,@RequestParam String schoolName,@RequestParam String teacherName) {
+
+        Students students = new Students(id,  name,  teacherName,  false);
+        students.setSchoolName(schoolName);
+        return studentService.addStudent(students);
+    }
+
+
+    /**
+     * 更新学生
+     */
+
+    public String updateStudent(@RequestParam int id,@RequestParam String name,@RequestParam String schoolName,@RequestParam String teacherName,@RequestParam boolean isPayFee) {
+        deleteStudent(id);
+        Students students = new Students(id,  name,  teacherName,  isPayFee);
+        students.setSchoolName(schoolName);
+        return studentService.addStudent(students);
+    }
+
+
+
+
+
 
     /**
      * 首次录入某一学生的得分分数

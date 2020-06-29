@@ -27,6 +27,16 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public String addStudent(Students student) {
+        try {
+            studentsMapper.addStudent(student);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return " add , success";
+    }
+
+    @Override
     public String addScoreToStudent(int id, int score) {
         try {
             studentsMapper.updateScoreOfStudent(id, score);

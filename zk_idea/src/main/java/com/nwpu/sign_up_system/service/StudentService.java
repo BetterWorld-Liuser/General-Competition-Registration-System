@@ -1,5 +1,6 @@
 package com.nwpu.sign_up_system.service;
 
+import com.nwpu.sign_up_system.model.Students;
 import io.swagger.annotations.Api;
 import net.sf.json.JSONArray;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,15 @@ public interface StudentService {
      */
     @Transactional
     String deleteStudent(int id);
+
+    /**
+     * add
+     *
+     * @param student
+     * @return
+     */
+    @Transactional
+    String addStudent(Students student);
 
     /**
      * 首次录入某一学生的得分分数
